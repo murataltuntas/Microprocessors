@@ -1,0 +1,81 @@
+Decoder V-5.0.19 Build 10203, Jul 23 2010
+Options: -NoSym -Proc=HC12 -T
+Decoding File: 'C:\Users\Murat\Desktop\microprocessor\HW\HW01\HW01_111044043_Murat_ALTUNTAS\bin\Project.abs.s19'
+File format: S-Record
+
+S05E0000433A5C55736572735C4D757261745C4465736B746F705C6D6963726F70726F636573736F725C48575C485730315C485730315F3131313034343034335F4D757261745F414C54554E5441535C62696E5C50726F6A6563742E61627392
+Type:     S0 (Header Block)
+Length:   0x5E
+Address:  0x0000
+Text:     C:\Users\Murat\Desktop\microprocessor\HW\HW01\HW01_111044043_Murat_ALTUNTAS\bin\Project.abs
+CheckSum: 0x92
+
+S107100000C800968A
+Type:     S1 (A record containing the 2-bytes address at which the code/data is to reside)
+Length:   0x7
+Address:  0x1000
+Data:     0x1000   00 C8 00 96              - ????
+CheckSum: 0x8A
+
+S1234000180410002000180410022002FC2000B3200227182D0BFC2002F310027C200220B7
+Type:     S1 (A record containing the 2-bytes address at which the code/data is to reside)
+Length:   0x23
+Address:  0x4000
+Data:     0x4000   18 04 10 00 20 00 18 04  - ???? ???
+          0x4008   10 02 20 02 FC 20 00 B3  - ?? ?? ??
+          0x4010   20 02 27 18 2D 0B FC 20  -  ?'?-?? 
+          0x4018   02 F3 10 02 7C 20 02 20  - ????| ? 
+CheckSum: 0xB7
+
+S11C4020EBFC2000F310007C200020E0FC20007C300086FF5A035B013F98
+Type:     S1 (A record containing the 2-bytes address at which the code/data is to reside)
+Length:   0x1C
+Address:  0x4020
+Data:     0x4020   EB FC 20 00 F3 10 00 7C  - ?? ????|
+          0x4028   20 00 20 E0 FC 20 00 7C  -  ? ?? ?|
+          0x4030   30 00 86 FF 5A 03 5B 01  - 0???Z?[?
+          0x4038   3F                       - ?
+CheckSum: 0x98
+
+S105FFFE4000BD
+Type:     S1 (A record containing the 2-bytes address at which the code/data is to reside)
+Length:   0x5
+Address:  0xFFFE
+Data:     0xFFFE   40 00                    - @?
+CheckSum: 0xBD
+
+S9030000FC
+Type:     S9 (Termination record for a block of S1 records)
+Length:   0x3
+Address:  0x0000
+CheckSum: 0xFC
+
+Disassembly: 
+
+00001000 00           [5]    BGND  
+00001001 C800         [1]    EORB  #0
+00001003 9600         [3]    LDAA  $00
+
+00004000 180410002000 [6]    MOVW  $1000,$2000
+00004006 180410022002 [6]    MOVW  $1002,$2002
+0000400C FC2000       [3]    LDD   $2000
+0000400F B32002       [3]    SUBD  $2002
+00004012 2718         [3/1]  BEQ   *+26       ;abs = $402C
+00004014 2D0B         [3/1]  BLT   *+13       ;abs = $4021
+00004016 FC2002       [3]    LDD   $2002
+00004019 F31002       [3]    ADDD  $1002
+0000401C 7C2002       [3]    STD   $2002
+0000401F 20EB         [3]    BRA   *-19       ;abs = $400C
+00004021 FC2000       [3]    LDD   $2000
+00004024 F31000       [3]    ADDD  $1000
+00004027 7C2000       [3]    STD   $2000
+0000402A 20E0         [3]    BRA   *-30       ;abs = $400C
+0000402C FC2000       [3]    LDD   $2000
+0000402F 7C3000       [3]    STD   $3000
+00004032 86FF         [1]    LDAA  #255
+00004034 5A03         [2]    STAA  $03
+00004036 5B01         [2]    STAB  $01
+00004038 3F           [9]    SWI   
+
+0000FFFE 40           [1]    NEGA  
+0000FFFF 00           [5]    BGND  
